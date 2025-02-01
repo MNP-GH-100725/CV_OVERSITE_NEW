@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oversite.Helpers", "Oversite.Helpers\Oversite.Helpers.csproj", "{8E1143C6-5E8A-45B5-BFAE-4001E92B8BDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oversite.Core", "Oversite.Core\Oversite.Core.csproj", "{2522A8B3-A1C6-4EEA-8B22-610DB98F144C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oversite.DTO", "Oversite.DTO\Oversite.DTO.csproj", "{B072F8E2-2B0F-447C-AEE0-231BE4DBB308}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oversite.Api", "Oversite.Api\Oversite.Api.csproj", "{A28A37C6-8E5C-4810-8F2D-6C11D5FE72C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oversite.PublicApi", "Oversite.PublicApi\Oversite.PublicApi.csproj", "{84A32B91-A96C-4B5B-85FA-A3663CAD3E78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E1143C6-5E8A-45B5-BFAE-4001E92B8BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E1143C6-5E8A-45B5-BFAE-4001E92B8BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E1143C6-5E8A-45B5-BFAE-4001E92B8BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E1143C6-5E8A-45B5-BFAE-4001E92B8BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2522A8B3-A1C6-4EEA-8B22-610DB98F144C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2522A8B3-A1C6-4EEA-8B22-610DB98F144C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2522A8B3-A1C6-4EEA-8B22-610DB98F144C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2522A8B3-A1C6-4EEA-8B22-610DB98F144C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B072F8E2-2B0F-447C-AEE0-231BE4DBB308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B072F8E2-2B0F-447C-AEE0-231BE4DBB308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B072F8E2-2B0F-447C-AEE0-231BE4DBB308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B072F8E2-2B0F-447C-AEE0-231BE4DBB308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28A37C6-8E5C-4810-8F2D-6C11D5FE72C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28A37C6-8E5C-4810-8F2D-6C11D5FE72C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28A37C6-8E5C-4810-8F2D-6C11D5FE72C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28A37C6-8E5C-4810-8F2D-6C11D5FE72C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A32B91-A96C-4B5B-85FA-A3663CAD3E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A32B91-A96C-4B5B-85FA-A3663CAD3E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A32B91-A96C-4B5B-85FA-A3663CAD3E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A32B91-A96C-4B5B-85FA-A3663CAD3E78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7888F44-A4CE-49EC-AD83-E6000973032F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.193.200.12:8080/tfs/mactech
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Oversite.Api\\Oversite.Api.csproj
+		SccProjectName1 = Oversite.Api
+		SccLocalPath1 = Oversite.Api
+		SccProjectUniqueName2 = Oversite.Core\\Oversite.Core.csproj
+		SccProjectName2 = Oversite.Core
+		SccLocalPath2 = Oversite.Core
+		SccProjectUniqueName3 = Oversite.DTO\\Oversite.DTO.csproj
+		SccProjectName3 = Oversite.DTO
+		SccLocalPath3 = Oversite.DTO
+		SccProjectUniqueName4 = Oversite.Helpers\\Oversite.Helpers.csproj
+		SccProjectName4 = Oversite.Helpers
+		SccLocalPath4 = Oversite.Helpers
+		SccProjectUniqueName5 = Oversite.PublicApi\\Oversite.PublicApi.csproj
+		SccProjectName5 = Oversite.PublicApi
+		SccLocalPath5 = Oversite.PublicApi
+	EndGlobalSection
+EndGlobal
