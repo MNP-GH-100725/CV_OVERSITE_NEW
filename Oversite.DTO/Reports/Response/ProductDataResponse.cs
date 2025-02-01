@@ -30,4 +30,15 @@ namespace Oversite.DTO.Reports.Response
         public bool IsDataAvailable { get; set; }
         public string message { get; set; }
     }
+    public class OpVerificationReportResponse
+    {
+        public OpVerificationReportResponse()
+        {
+            IsDataAvailable = false;
+        }
+        public List<OpVerificationReportProperties> OpverificationReports { get; set; }
+
+        public bool IsDataAvailable { get; set; }
+        public string message { get; set; }
+    }
 }

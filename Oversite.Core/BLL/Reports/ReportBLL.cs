@@ -97,5 +97,41 @@ namespace Oversite.Core.BLL.Reports
 
             return response;
         }
+        public Response<OpVerificationReportResponse> OpVerificationReportBLL(OpVerificationReportRequest request)
+        {
+            OpVerificationReportResponse OpVerificationReportResponse = new OpVerificationReportResponse();
+            Response<OpVerificationReportResponse> response = new Response<OpVerificationReportResponse>();
+            try
+            {
+
+                OpVerificationReportResponse = new ProductReportDataSource().OpverificationReports(request);
+                if (OpVerificationReportResponse.IsDataAvailable == true)
+                {
+                    response.Data = OpVerificationReportResponse;
+                    response.status = ResponseTypeContants.SUCCESS;
+                    response.apiStatus = ApiStatusConstants.COMPLETED;
+                    response.responseMsg = OpVerificationReportResponse.message;
+                }
+                else
+                {
+                    response.status = ResponseTypeContants.FAIL;
+                    response.apiStatus = ApiStatusConstants.COMPLETED;
+                    response.responseMsg = OpVerificationReportResponse.message;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Exception exception = ex;
+                response.status = "exception";
+                response.responseMsg = "Internal Server Error";
+                response.SetExceptionError(ex.Message);
+
+            }
+
+            return response;
+        }
+
+
     }
 }

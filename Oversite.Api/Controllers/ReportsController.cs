@@ -43,6 +43,19 @@ namespace Oversite.Api.Controllers
                 return BadRequest(ModelState);
             }
         }
+        [HttpPost("OpverificationReports")]
+        public ActionResult<Response<OpVerificationReportResponse>> OpverificationReports([FromBody] OpVerificationReportRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                return ReportBLL.instance.OpVerificationReportBLL(request);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
 
 
 

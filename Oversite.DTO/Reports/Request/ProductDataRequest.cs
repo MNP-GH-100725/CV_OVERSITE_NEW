@@ -20,4 +20,11 @@ namespace Oversite.DTO.Reports.Request
         public int productid { get; set; }
         public int flag { get; set; }
     }
+    public class OpVerificationReportRequest
+    {
+        public string roleid { get; set; }
+        public string FromDate { get; set; }
+        public string Todate { get; set; }
+        public int productid { get; set; }
+    }
 }

@@ -64,6 +64,14 @@ namespace Oversite.PublicApi.Controllers
             response = new Oversite.Helpers.ApiManager().InvokePostHttpClient<Oversite.DTO.Response.Response<VerificationStatusReportResponse>, VerificationStatusReportRequest>(request, baseUrl + "/api/Reports/VerificationStatusReports").Item1;
             return response;
         }
+        [HttpPost("OpverificationReports")]
+        public ActionResult<Response<OpVerificationReportResponse>> OpverificationReports([FromBody] OpVerificationReportRequest request)
+        {
+            Oversite.DTO.Response.Response<OpVerificationReportResponse> response = new Oversite.DTO.Response.Response<OpVerificationReportResponse>();
+            string baseUrl = configuration.GetSection("baseUrl").Value;
+            response = new Oversite.Helpers.ApiManager().InvokePostHttpClient<Oversite.DTO.Response.Response<OpVerificationReportResponse>, OpVerificationReportRequest>(request, baseUrl + "/api/Reports/OpverificationReports").Item1;
+            return response;
+        }
 
 
         [TypeFilter(typeof(TokenValidator))]
