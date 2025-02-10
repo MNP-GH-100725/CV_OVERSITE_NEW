@@ -47,7 +47,7 @@ namespace Oversite.DTO.Reports.Properties
         public string risk_categ { get; set; }
         public string status { get; set; }
         public string roh_remark { get; set; }
-        public decimal tat { get; set; }
+        public decimal above_tat { get; set; }
 
     }
 }
