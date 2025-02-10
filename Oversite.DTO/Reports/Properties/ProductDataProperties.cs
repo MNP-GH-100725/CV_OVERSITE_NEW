@@ -54,4 +54,29 @@ namespace Oversite.DTO.Reports.Properties
 
 
     }
+    public class OpNVerificationReportProperties
+
+    {
+        public string noh_verifydate { get; set; }
+        public string noh_senbackdate { get; set; }
+        public string roh_verdate { get; set; }
+        public string branch_name { get; set; }
+        public string emp_name { get; set; }
+        public string emp_code { get; set; }
+        public string state_name { get; set; }
+        public string loan_id { get; set; }
+        public string application_id { get; set; }
+        public string customer_name { get; set; }
+        public string loan_amount { get; set; }
+        public string dismonth { get; set; }
+        public string disdate { get; set; }
+        public string risk_categ { get; set; }
+        public string status { get; set; }
+        public string noh_overall_remark { get; set; }
+        public decimal above_tat { get; set; }
+       
+         
+
+
+    }
 }

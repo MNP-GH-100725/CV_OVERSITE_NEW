@@ -37,6 +37,7 @@ namespace Oversite.DTO.Reports.Response
             IsDataAvailable = false;
         }
         public List<OpVerificationReportProperties> OpverificationReports { get; set; }
+        public List<OpNVerificationReportProperties> OpNverificationReports { get; set; }
 
         public bool IsDataAvailable { get; set; }
         public string message { get; set; }
