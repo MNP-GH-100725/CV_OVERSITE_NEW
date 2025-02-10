@@ -48,11 +48,9 @@ namespace Oversite.DTO.Reports.Properties
         public string status { get; set; }
         public string roh_remark { get; set; }
         public decimal above_tat { get; set; }
-        public string noh_senbackdate { get; set; }
-        public string noh_verifydate { get; set; }
-        public string noh_overall_remark { get; set; }
-
-
+       
+   
+     
     }
     public class OpNVerificationReportProperties
 
