@@ -56,14 +56,14 @@ namespace Oversite.Core.DataSource.Documents
 
                         else
                         {
-                            decimal rhodcnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_ops_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') ");
-                            if (rhodcnt > 0)
-                            {
-                                decimal rhovalidcnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_ops_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.roh_verify is null");
+                           // decimal rhodcnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_ops_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') ");
+                           // if (rhodcnt > 0)
+                            //{
+                                decimal rhovalidcnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_ops_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.roh_verify is not null");
                                 if (validcnt > 0)
                                 {
                                     response.isDataAvailable = false;
-                                    response.message = "RHO verification not completed";
+                                    response.message = "RHO verification  completed";
                                     return response;
                                 }
                                 decimal rhosndcnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_ops_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.roh_verify =1 and t1.roh_sendback =1");
@@ -73,13 +73,14 @@ namespace Oversite.Core.DataSource.Documents
                                     response.message = "This file Already sentback by ROH";
                                     return response;
                                 }
-                            }
-                            else
-                            {
-                                response.isDataAvailable = false;
-                                response.message = "RHO verification not completed";
-                                return response;
-                            }
+                            //}
+                           // else
+                            //{
+                               // response.isDataAvailable = false;
+                                //response.message = "RHO verification not completed";
+                               // return response;
+
+                            //}
                             decimal validcntT = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.nho_sendback=1");
                             if (validcntT > 0)
                             {
