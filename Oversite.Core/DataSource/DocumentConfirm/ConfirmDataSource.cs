@@ -36,13 +36,13 @@ namespace Oversite.Core.DataSource.DocumentConfirm
 
                 //decimal rolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from USER_ROLE_DETAILS  t1 left outer join user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49");
                 //decimal rolecnch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from USER_ROLE_DETAILS  t1 left outer join user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50");
-                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=81");
-                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=77");
+                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49");
+                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50");
 
-                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=79");
-                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=78");
-                decimal rho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=80");
-                decimal bco = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=82");
+                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=19");
+                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=55");
+                decimal rho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=52");
+                decimal bco = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=74");
 
                 decimal role_cvnho_ass_cnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=84");
 
@@ -63,7 +63,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                             {
                                 cmd.Add("Update tbl_oversite_master set nho_decision_flag=" + request.decisionFlag + ",nho_risk_category =" + request.categoryId + ", NHO_SENDBACK_DATE=sysdate,verification_status=5,NHO_sendback=1, tradate = sysdate  , verify_doc_count=" + count21 + ",nho_overall_remark='" + request.remarks + "' where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                 cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                      "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','5','81','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                      "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','5','49','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
                             cmd.Add("Update tbl_ops_oversite_master t set t.roh_verify =null, t.roh_verify_date = null, t.roh_verify_by = null where (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "')");
                             }
                             else
@@ -72,14 +72,14 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                                 {
                                     cmd.Add("Update tbl_oversite_master set nho_decision_flag=" + request.decisionFlag + ",verification_status=6,NHO_verify=1, tradate = sysdate , verify_doc_count=" + count21 + ",nho_overall_remark='" + request.remarks + "', nho_verify_date = sysdate  ,nho_verify_by='" + request.enterBy + "',cr_verification_status=6 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                     cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                             "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','6','81','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                             "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','6','49','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
 
                             }
                             else
                                 {
                                     cmd.Add("Update tbl_oversite_master set nho_decision_flag=" + request.decisionFlag + ",verification_status=4,NHO_verify=1, tradate = sysdate , verify_doc_count=" + count21 + ",nho_overall_remark='" + request.remarks + "', nho_verify_date = sysdate  ,nho_verify_by='" + request.enterBy + "' where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                     cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                             "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','4','81','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                             "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','4','49','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
 
                                 }
 
@@ -103,7 +103,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                                 //sendback
                                 cmd.Add("Update tbl_oversite_master set decision_flag=" + request.decisionFlag + ",risk_category =" + request.categoryId + ",NCH_SENDBACK_DATE=sysdate,verification_status=3, NCH_sendback=1,tradate = sysdate  , verify_doc_count=" + count21 + ",nch_overall_remark='" + request.remarks + "',SENDBACK=1,CR_VERIFICATION_STATUS=3 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                 cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','3','77','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','3','50','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
                                 cmd.Add("update TBL_OVERSITE_DOCUMENTS_mst t set t.NCH_SENDBACK_TO= '" + request.sendbackto + "' where (t.application_id ='" + request.searchType + "' or t.loan_id='" + request.searchType + "') and t.nch_sendback_flag=1 and t.nch_verify_by is null");
 
                             }
@@ -114,13 +114,13 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                                     //nho verfied
                                     cmd.Add("Update tbl_oversite_master set decision_flag=" + request.decisionFlag + ",risk_category=" + request.categoryId + ",verification_status=6, Nch_verify=1,tradate = sysdate , verify_doc_count=" + count21 + ",nch_overall_remark='" + request.remarks + "', nch_verify_date = sysdate  ,nch_verify_by='" + request.enterBy + "',CR_VERIFICATION_STATUS=6 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                     cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','6','77','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
+                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','6','50','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
                                 }
                                 else
                                 {
                                     cmd.Add("Update tbl_oversite_master set decision_flag=" + request.decisionFlag + ",risk_category=" + request.categoryId + ",verification_status=2, Nch_verify=1,tradate = sysdate , verify_doc_count=" + count21 + ",nch_overall_remark='" + request.remarks + "', nch_verify_date = sysdate  ,nch_verify_by='" + request.enterBy + "',CR_VERIFICATION_STATUS=2 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                     cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                            "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','2','77','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
+                                            "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','2','50','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
                                 }
                                 //query = "select count(*) from TBL_OVERSITE_DOCUMENTS_mst t where  (t.application_id ='" + request.searchType + "' or t.loan_id='" + request.searchType + "') and t.verify_status != 2 ";
                                 //decimal count3 = new OracleHelper().ExecuteScalar<decimal>(query);
@@ -150,7 +150,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                         decimal count21 = new OracleHelper().ExecuteScalar<decimal>(query);
                         cmd.Add("Update tbl_oversite_master set tradate = sysdate, VERIFY_DOC_COUNT = " + count21 + ", VERIFICATION_STATUS = 13 where (application_id = '" + request.searchType + "' or loan_id = '" + request.searchType + "')");
                         cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','13','82','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
+                                "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','13','74','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
                         cmd.Add("update tbl_ops_oversite_master t set t.ROH_SENDBACK=2,t.BCO_DECISION_FLAG =" + request.decisionFlag + ", t.BCO_RISK_CATEGORY = " + request.categoryId + ", t.bco_verify=1, t.tradate=sysdate, t.bco_overall_remark='" + request.remarks + "', t.bco_verify_date = sysdate, t.bco_verify_by = '" + request.enterBy + "', t.status_id=13 where (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "')");
 
                     }
@@ -161,7 +161,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                         decimal count21 = new OracleHelper().ExecuteScalar<decimal>(query);
                         cmd.Add("Update tbl_oversite_master set bcm_decision_flag=" + request.decisionFlag + ",bcm_risk_category=" + request.categoryId + ", BCM_VERIFY=1,tradate = sysdate ,VERIFY_DOC_COUNT=" + count21 + ",bcm_overall_remark='" + request.remarks + "', BCM_VERIFY_DATE = sysdate  ,BCM_VERIFY_BY='" + request.enterBy + "',CR_VERIFICATION_STATUS=9 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                         cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','9','79','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
+                                "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','9','19','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
                     }
 
                     if (/*rolecnch > 0||*/ cvrolerch > 0 && rho ==0)//RCH
@@ -179,13 +179,13 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                             {
                                 cmd.Add("Update tbl_oversite_master set rch_decision_flag=" + request.decisionFlag + ",rch_risk_category =" + request.categoryId + ",RCH_SENDBACK_DATE=sysdate, RCH_sendback=1,tradate = sysdate  , verify_doc_count=" + count21 + ",Rch_overall_remark='" + request.remarks + "',CR_VERIFICATION_STATUS=10 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                 cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','10','78','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','10','55','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
                             }
                             else
                             {
                                 cmd.Add("Update tbl_oversite_master set rch_decision_flag=" + request.decisionFlag + ",rch_risk_category=" + request.categoryId + ",Rch_verify=1,tradate = sysdate , verify_doc_count=" + count21 + ",Rch_overall_remark='" + request.remarks + "', Rch_verify_date = sysdate  ,Rch_verify_by='" + request.enterBy + "',CR_VERIFICATION_STATUS=8 where  (application_id ='" + request.searchType + "' or loan_id='" + request.searchType + "')");
                                 cmd.Add("insert into tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','8','78','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
+                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','8','55','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',0," + request.decisionFlag + "," + request.categoryId + ")");
                             }
                         }
                         else
@@ -212,7 +212,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                                 decimal cntt = new OracleHelper().ExecuteScalar<decimal>(query);
                                 cmd.Add("Update lms_tw.tbl_oversite_master t set tradate = sysdate, verify_doc_count = " + count21 + ", VERIFICATION_STATUS = 12 where (application_id = '" + request.searchType + "' or loan_id = '" + request.searchType + "')");
                                 cmd.Add("insert into lms_tw.tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','12','80','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                        "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','12','52','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
                                 if(cntt>0)
                                 {
                                     //query = "select count(*) from tbl_ops_oversite_master t where t.ROH_SENDBACK is not null and  (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "')";
@@ -230,7 +230,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
                             {
                                 cmd.Add("Update lms_tw.tbl_oversite_master t set tradate = sysdate, verify_doc_count = " + count21 + ", VERIFICATION_STATUS = 11 where (application_id = '" + request.searchType + "' or loan_id = '" + request.searchType + "')");
                                 cmd.Add("insert into lms_tw.tbl_oversite_TATDetails (loanid,applicationid,STATUSID,ROLEID,TAT,DISBURSEDDATE,enteredby,entereddate,FIRMID,PRODUCTID,REGIONID,SENBACKFLAG,decision_flag,risk_category) " +
-                                       "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','11','80','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
+                                       "values('" + tATDetails.loan_id + "','" + tATDetails.application_id + "','11','52','" + tATDetails.TAT + "',to_date('" + tATDetails.disbursed_date + "'),'" + request.enterBy + "',sysdate,'" + tATDetails.firm_id + "','" + tATDetails.product_id + "','" + tATDetails.region_id + "',1," + request.decisionFlag + "," + request.categoryId + ")");
                                 query = "select count(*) from lms_tw.tbl_ops_oversite_master t where (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "')";
                                 decimal cntt = new OracleHelper().ExecuteScalar<decimal>(query);
                                 if (cntt > 0)
@@ -395,7 +395,7 @@ namespace Oversite.Core.DataSource.DocumentConfirm
 
                             if (count4 > 0 || count44 > 0)
                             {
-                                //100823
+                                //100743
                                 decimal count216 = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.TBL_OVERSITE_DOCUMENTS_MST t where (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "') and t.RHO_sendback_flag=1 and t.recaptured_by is null");
                                 decimal count217= new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.TBL_OVERSITE_DOCUMENTS_MST t where (t.application_id = '" + request.searchType + "' or t.loan_id = '" + request.searchType + "') and t.nho_sendback_flag = 1 and t.recaptured_by is null");
 
