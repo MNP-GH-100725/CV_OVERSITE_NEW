@@ -31,12 +31,12 @@ namespace Oversite.Core.DataSource.UpdateData
                 //role_id = new OracleHelper().GetRecords<decimal>("select distinct t1.Role_Id from USER_ROLE_DETAILS t1 left outer join user_master t2 ON  t1.user_id = t2.user_id and t2.product_id = " + request.productId + "  WHERE t2.emp_code = '" + request.enterBy + "' order by t1.role_id asc");
                 //decimal rolecnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from USER_ROLE_DETAILS  t1 left outer join user_master t2 ON  t1.user_id = t2.user_id and t2.product_id = " + request.productId + "  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49");
                 //decimal rolecnt1 = new OracleHelper().ExecuteScalar<decimal>("select count(*) from USER_ROLE_DETAILS  t1 left outer join user_master t2 ON  t1.user_id = t2.user_id and t2.product_id = " + request.productId + "  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50");
-                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=81");//oversite nho
-                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=77"); //oversite nch
-                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=79");//BCM//oversite bch
-                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=78");//RCH //oversite rch
-                decimal rho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=80");//ROH//oversite rho
-                decimal BCO = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=82");//bco//oversite bho
+                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49");//oversite nho
+                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50"); //oversite nch
+                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=19");//BCM//oversite bch
+                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=55");//RCH //oversite rch
+                decimal rho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=52");//ROH//oversite rho
+                decimal BCO = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=74");//bco//oversite bho
                 decimal role_cvnho_ass_cnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=84");
 
 
@@ -257,59 +257,59 @@ namespace Oversite.Core.DataSource.UpdateData
 
                     }
                     //100890 s
-                    else if(cvrolerch >0 && rho >0)
-                    {
-                        decimal sendback = new OracleHelper().ExecuteScalar<decimal>("select count(*) from  TBL_OVERSITE_DOCUMENTS_mst t  where t.application_id=" + request.docupdatelist[i].applicationId + " and t.document_type=" + request.docupdatelist[i].documentType + "and t.customerid=" + request.docupdatelist[i].customerId + " and t.RCH_sendback_flag =1");
+                    //else if(cvrolerch >0 && rho >0)
+                    //{
+                    //    decimal sendback = new OracleHelper().ExecuteScalar<decimal>("select count(*) from  TBL_OVERSITE_DOCUMENTS_mst t  where t.application_id=" + request.docupdatelist[i].applicationId + " and t.document_type=" + request.docupdatelist[i].documentType + "and t.customerid=" + request.docupdatelist[i].customerId + " and t.RCH_sendback_flag =1");
 
-                        if (sendback > 0)
-                        {
+                    //    if (sendback > 0)
+                    //    {
 
-                            response.responseMsg = "Already SendBack";
-                            response.apiStatus = ApiStatusConstants.NOT_COMPLETED;
-                            response.status = ResponseTypeContants.FAIL;
-                            return response;
+                    //        response.responseMsg = "Already SendBack";
+                    //        response.apiStatus = ApiStatusConstants.NOT_COMPLETED;
+                    //        response.status = ResponseTypeContants.FAIL;
+                    //        return response;
 
-                        }
-                        sendback = new OracleHelper().ExecuteScalar<decimal>("select count(*) from  TBL_OVERSITE_DOCUMENTS_mst t  where t.application_id=" + request.docupdatelist[i].applicationId + " and t.document_type=" + request.docupdatelist[i].documentType + "and t.customerid=" + request.docupdatelist[i].customerId + " and t.RCH_verify_by  is not null");
-                        if (sendback > 0)
-                        {
+                    //    }
+                    //    sendback = new OracleHelper().ExecuteScalar<decimal>("select count(*) from  TBL_OVERSITE_DOCUMENTS_mst t  where t.application_id=" + request.docupdatelist[i].applicationId + " and t.document_type=" + request.docupdatelist[i].documentType + "and t.customerid=" + request.docupdatelist[i].customerId + " and t.RCH_verify_by  is not null");
+                    //    if (sendback > 0)
+                    //    {
 
-                            response.responseMsg = "Already Verified";
-                            response.apiStatus = ApiStatusConstants.NOT_COMPLETED;
-                            response.status = ResponseTypeContants.FAIL;
-                            return response;
+                    //        response.responseMsg = "Already Verified";
+                    //        response.apiStatus = ApiStatusConstants.NOT_COMPLETED;
+                    //        response.status = ResponseTypeContants.FAIL;
+                    //        return response;
 
-                        }
+                    //    }
 
-                        if (request.docStatus == "V")
-                        {
-                            int newstatus = 17;
+                    //    if (request.docStatus == "V")
+                    //    {
+                    //        int newstatus = 17;
 
-                            cmd.Add("update TBL_OVERSITE_DOCUMENTS_mst t set  t.VERIFY_FLAG = " + newstatus + ",t.RCH_Verify_Date=sysdate,t.RCH_Verify_By=" + request.enterBy + ",t.RCH_Verify_Remarks='" + request.docRemarks + "'" +
-                                ",t.RHO_VERIFIED_DATE=sysdate,RHO_VERIFY_FLAG=1,t.rho_verify_by=" + request.enterBy + ",t.rho_remarks='" + request.docRemarks + "' where  t.APPLICATION_ID=" + request.docupdatelist[i].applicationId + " and t.DOCUMENT_TYPE=" + request.docupdatelist[i].documentType + " and customerid='" + request.docupdatelist[i].customerId + "'");
+                    //        cmd.Add("update TBL_OVERSITE_DOCUMENTS_mst t set  t.VERIFY_FLAG = " + newstatus + ",t.RCH_Verify_Date=sysdate,t.RCH_Verify_By=" + request.enterBy + ",t.RCH_Verify_Remarks='" + request.docRemarks + "'" +
+                    //            ",t.RHO_VERIFIED_DATE=sysdate,RHO_VERIFY_FLAG=1,t.rho_verify_by=" + request.enterBy + ",t.rho_remarks='" + request.docRemarks + "' where  t.APPLICATION_ID=" + request.docupdatelist[i].applicationId + " and t.DOCUMENT_TYPE=" + request.docupdatelist[i].documentType + " and customerid='" + request.docupdatelist[i].customerId + "'");
 
-                        }
-                        if (request.docStatus == "S")
-                        {
-                            //decimal docSeq = new OracleHelper().ExecuteScalar<decimal>("select nvl(max(t.sequence_id),0)+1  from TBL_OVERSITE_DOCUMENTS_DTL t where t.application_id='" + request.docupdatelist[i].applicationId + "'");
+                    //    }
+                    //    if (request.docStatus == "S")
+                    //    {
+                    //        //decimal docSeq = new OracleHelper().ExecuteScalar<decimal>("select nvl(max(t.sequence_id),0)+1  from TBL_OVERSITE_DOCUMENTS_DTL t where t.application_id='" + request.docupdatelist[i].applicationId + "'");
 
-                            int newstatus = 16;
-                            List<DocReConfirmProperties> DataPropertiesnew = new List<DocReConfirmProperties>();
-                            cmd.Add("update TBL_OVERSITE_DOCUMENTS_mst t set t.VERIFY_FLAG = " + newstatus + ",t.RCH_sendback_flag =1,t.RCH_SENDBACK_REMARKS='" + request.docRemarks + "',t.rho_sendback_flag =1,t.rho_sendback_remarks='" + request.docRemarks + "',t.RHO_SENDBACK_DATE=sysdate,t.RHO_SENDBACK_BY=" + request.enterBy + "  where  t.APPLICATION_ID=" + request.docupdatelist[i].applicationId + "  and t.DOCUMENT_TYPE=" + request.docupdatelist[i].documentType + " and customerid='" + request.docupdatelist[i].customerId + "'");
-                            decimal seq_ID = new OracleHelper().ExecuteScalar<decimal>("select nvl(max(sequence_id ),0)+1  from TBL_OVERSITE_DOCUMENTS_DTL where  application_id = '" + request.docupdatelist[i].applicationId + "' ");
-                            cmd.Add("insert into TBL_OVERSITE_DOCUMENTS_dtl (APPLICATION_ID,LOAN_ID,CUSTOMERID,DOCUMENT_NO,DOCUMENT_TYPE,VERIFICATION_STATUS,VERIFY_DATE,VERIFY_BY,VERIFY_REMARKS,SENDBACK_FLAG,PRODUCT_ID,SEQUENCE_ID,role_id)" +
-                                "values (" + request.docupdatelist[i].applicationId + "," + request.docupdatelist[i].loanId + ",'" + request.docupdatelist[i].customerId + "','" + request.docupdatelist[i].documentNo + "'," + request.docupdatelist[i].documentType + "," + newstatus + ",sysdate," + request.enterBy + ",'" + request.docRemarks + "',1," + request.productId + "," + seq_ID + ",7880)");
-                        }
-                         new OracleHelper().ExecuteNonQuerynew(cmd.ToArray(), OracleHelper.SQLMode.Query, null);
-                        //}
-                        //else
-                        //{
-                        response.responseMsg = "Success";
-                        response.apiStatus = ApiStatusConstants.COMPLETED;
-                        response.status = ResponseTypeContants.SUCCESS;
+                    //        int newstatus = 16;
+                    //        List<DocReConfirmProperties> DataPropertiesnew = new List<DocReConfirmProperties>();
+                    //        cmd.Add("update TBL_OVERSITE_DOCUMENTS_mst t set t.VERIFY_FLAG = " + newstatus + ",t.RCH_sendback_flag =1,t.RCH_SENDBACK_REMARKS='" + request.docRemarks + "',t.rho_sendback_flag =1,t.rho_sendback_remarks='" + request.docRemarks + "',t.RHO_SENDBACK_DATE=sysdate,t.RHO_SENDBACK_BY=" + request.enterBy + "  where  t.APPLICATION_ID=" + request.docupdatelist[i].applicationId + "  and t.DOCUMENT_TYPE=" + request.docupdatelist[i].documentType + " and customerid='" + request.docupdatelist[i].customerId + "'");
+                    //        decimal seq_ID = new OracleHelper().ExecuteScalar<decimal>("select nvl(max(sequence_id ),0)+1  from TBL_OVERSITE_DOCUMENTS_DTL where  application_id = '" + request.docupdatelist[i].applicationId + "' ");
+                    //        cmd.Add("insert into TBL_OVERSITE_DOCUMENTS_dtl (APPLICATION_ID,LOAN_ID,CUSTOMERID,DOCUMENT_NO,DOCUMENT_TYPE,VERIFICATION_STATUS,VERIFY_DATE,VERIFY_BY,VERIFY_REMARKS,SENDBACK_FLAG,PRODUCT_ID,SEQUENCE_ID,role_id)" +
+                    //            "values (" + request.docupdatelist[i].applicationId + "," + request.docupdatelist[i].loanId + ",'" + request.docupdatelist[i].customerId + "','" + request.docupdatelist[i].documentNo + "'," + request.docupdatelist[i].documentType + "," + newstatus + ",sysdate," + request.enterBy + ",'" + request.docRemarks + "',1," + request.productId + "," + seq_ID + ",5552)");
+                    //    }
+                    //     new OracleHelper().ExecuteNonQuerynew(cmd.ToArray(), OracleHelper.SQLMode.Query, null);
+                    //    //}
+                    //    //else
+                    //    //{
+                    //    response.responseMsg = "Success";
+                    //    response.apiStatus = ApiStatusConstants.COMPLETED;
+                    //    response.status = ResponseTypeContants.SUCCESS;
 
-                        //}
-                    }
+                    //    //}
+                    //}
                     //100890 e
                     else if (/*rolecnt1 > 0 || */cvrolerch > 0)//RCH
                     {

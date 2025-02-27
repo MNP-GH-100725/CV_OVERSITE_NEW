@@ -27,15 +27,15 @@ namespace Oversite.Core.DataSource.Documents
             string output = JsonConvert.SerializeObject(request);
             try
             {
-                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=81"); //oversite nho
-                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=77"); //oversite nch
+                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49"); //oversite nho
+                decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50"); //oversite nch
 
 
                 //Credit team new flow 100890
-                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=79");//oversite bch//bcm role count
-                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=78");//oversite rch//rch role count
+                decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=19");//oversite bch//bcm role count
+                decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=55");//oversite rch//rch role count
 
-                decimal cvroleroh = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=80");//oversite roh//roh role count
+                decimal cvroleroh = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=52");//oversite roh//roh role count
                 decimal role_cvnho_ass_cnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=84"); //oversite nho
 
                 decimal app = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "')");
@@ -659,14 +659,14 @@ namespace Oversite.Core.DataSource.Documents
                     else
                     {
 
-                        decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=78");//oversite rch
-                        decimal cvrolerho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=80");//oversite rho
+                        decimal cvrolerch = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=55");//oversite rch
+                        decimal cvrolerho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=52");//oversite rho
                         decimal cvrolerm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=48");
 
                         //bcm branch team 100890
-                        decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=79");//oversite bch
+                        decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=19");//oversite bch
 
-                        decimal cvrolebco = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=82");//oversite bho
+                        decimal cvrolebco = new OracleHelper().ExecuteScalar<decimal>("select count(*) from lms_tw.vw_cv_user_role_details  t1 left outer join lms_tw.vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=74");//oversite bho
 
                         decimal cvloancount = new OracleHelper().ExecuteScalar<decimal>("select count(tt.application_id) from cv_los.disbursement_details tt where (tt.application_id = '" + request.searchValue + "' or tt.loan_id = '" + request.searchValue + "')");
 
