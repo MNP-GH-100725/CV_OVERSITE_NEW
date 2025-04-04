@@ -25,8 +25,8 @@ namespace Oversite.Core.DataSource.Reports
             string query = string.Empty;
             try
             {
-                query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id where t.emp_code = '" + request.enterBy+ "'and u.role_id in(48,49,50,52,55,7,19,74,73)";
-                //query = "select distinct t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id INNER JOIN cv_los.oversite_role_master r on u.role_id=r.role_id where t.emp_code = '" + request.enterBy+ "'";
+                //query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id where t.emp_code = '" + request.enterBy+ "'and u.role_id in(48,49,50,52,55,7,19,74,73)";
+                query = "select distinct t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id INNER JOIN cv_los.oversite_role_master r on u.role_id=r.role_id where t.emp_code = '" + request.enterBy+ "'";
                   productlist = new OracleHelper().GetRecords<ProductDataProperties>(query);
                 if(productlist.Count==0)
                 {
@@ -34,8 +34,8 @@ namespace Oversite.Core.DataSource.Reports
                     response.ProductData = new OracleHelper().GetRecords<ProductDataProperties>(query);
                 }
                 else
-                {  //query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id  INNER JOIN cv_los.oversite_role_master r on u.role_id=r.role_id  where t.emp_code = '" + request.enterBy + "'";
-                    query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id where t.emp_code = '" + request.enterBy + "'and u.role_id in(48,49,50,52,55,7,19,74,73)";
+                {  query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id  INNER JOIN cv_los.oversite_role_master r on u.role_id=r.role_id  where t.emp_code = '" + request.enterBy + "'";
+                   // query = "select t.product_id productId, u.role_id roleId from cv_los.user_master t left outer join cv_los.user_role_details u on t.user_id=u.user_id where t.emp_code = '" + request.enterBy + "'and u.role_id in(48,49,50,52,55,7,19,74,73)";
                     response.ProductData = new OracleHelper().GetRecords<ProductDataProperties>(query);
                 }
                 if (response.ProductData.Count>0 )
