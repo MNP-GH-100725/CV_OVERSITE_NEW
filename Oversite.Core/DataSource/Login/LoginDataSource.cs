@@ -332,7 +332,7 @@ namespace Oversite.Core.DataSource.Login
                         //decimal expiredays1 = new OracleHelper().ExecuteScalar<decimal>("select to_number(t.parmtr_value) parmtr_value  from GENERAL_PARAMETER t where PARMTR_ID=1015 and MODULE_ID=3 and product_id=10");
                         //decimal expiredays2 = new OracleHelper().ExecuteScalar<decimal>("select to_number(t.parmtr_value) parmtr_value  from GENERAL_PARAMETER t where PARMTR_ID=1016 and MODULE_ID=3 and product_id=10");
 
-                        datequery = "select to_date(sysdate,'dd-mon-yyyy')-to_date((case when t.modified_date is null then t.entered_date else t.modified_date end),'dd-mon-yyyy')from user_master t where emp_code = '" + request.employeeId + "'";
+                        datequery = "select to_date(sysdate,'dd-mon-yyyy')-to_date((case when t.modified_date is null then t.entered_date else t.modified_date end),'dd-mon-yyyy')from cv_los.user_master t where emp_code = '" + request.employeeId + "'";
                         logindifference = new OracleHelper().ExecuteScalar<decimal>(datequery);
                         foreach (RoleProperties roleProperties1 in roleProperties)
                         {
