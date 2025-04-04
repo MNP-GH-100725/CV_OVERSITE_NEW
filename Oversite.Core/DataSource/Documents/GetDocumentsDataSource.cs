@@ -27,9 +27,9 @@ namespace Oversite.Core.DataSource.Documents
             string output = JsonConvert.SerializeObject(request);
             try
             {
-                //decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49"); //oversite nho
+                decimal cvrolenho = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=49"); //oversite nho
                 decimal cvrolench = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=50"); //oversite nch
-                decimal cvrolenho = 1;
+
 
                 //Credit team new flow 100890
                 decimal cvrolebcm = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=19");//oversite bch//bcm role count
@@ -38,8 +38,7 @@ namespace Oversite.Core.DataSource.Documents
                 decimal cvroleroh = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=52");//oversite roh//roh role count
                 decimal role_cvnho_ass_cnt = new OracleHelper().ExecuteScalar<decimal>("select count(*) from vw_cv_user_role_details  t1 left outer join vw_cv_user_master t2 ON  t1.user_id = t2.user_id  WHERE t2.emp_code = '" + request.enterBy + "' and t1.role_id=84"); //oversite nho
 
-                //decimal app = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "')");
-                decimal app = 1;
+                decimal app = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "')");
                 if (app > 0)
                 {
                     List<DocumentProperties> documents = new List<DocumentProperties>();
@@ -82,13 +81,13 @@ namespace Oversite.Core.DataSource.Documents
                                // return response;
 
                             //}
-                            //decimal validcntT = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.nho_sendback=1");
-                            //if (validcntT > 0)
-                            //{
-                            //    response.isDataAvailable = false;
-                            //    response.message = "This file Already sentback by NHO,Can't Verify Without Recapturing";
-                            //    return response;
-                            //}
+                            decimal validcntT = new OracleHelper().ExecuteScalar<decimal>("select count(*) from tbl_oversite_master  t1 where (t1.application_id = '" + request.searchType + "' or t1.loan_id = '" + request.searchType + "') and t1.nho_sendback=1");
+                            if (validcntT > 0)
+                            {
+                                response.isDataAvailable = false;
+                                response.message = "This file Already sentback by NHO,Can't Verify Without Recapturing";
+                                return response;
+                            }
 
                             var documentList = new List<DocumentProperties>();
 
