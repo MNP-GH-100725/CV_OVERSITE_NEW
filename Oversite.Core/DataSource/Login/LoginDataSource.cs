@@ -325,14 +325,14 @@ namespace Oversite.Core.DataSource.Login
                         string datequery, rolequery;
                         decimal logindifference;
 
-                        rolequery = "select t.role_id role from user_role_details t inner join user_master um on t.user_id=um.user_id where um.emp_code='" + request.employeeId + "' and t.role_id in(1,6)";
+                        rolequery = "select t.role_id role from vw_user_role_details_CV t inner join vw_cv_user_master um on t.user_id=um.user_id where um.emp_code='" + request.employeeId + "' and t.role_id in(1,6)";
                         List<RoleProperties> roleProperties = new OracleHelper().GetRecords<RoleProperties>(rolequery);
                         decimal expiredays1 = new OracleHelper().ExecuteScalar<decimal>("select to_number(PARMTR_VALUE)PARMTR_VALUE  from lms_tw.GENERAL_PARAMETER where PARMTR_ID=614 and MODULE_ID=3");
                         decimal expiredays2 = new OracleHelper().ExecuteScalar<decimal>("select to_number(PARMTR_VALUE)PARMTR_VALUE  from lms_tw.GENERAL_PARAMETER where PARMTR_ID=615 and MODULE_ID=3");
                         //decimal expiredays1 = new OracleHelper().ExecuteScalar<decimal>("select to_number(t.parmtr_value) parmtr_value  from GENERAL_PARAMETER t where PARMTR_ID=1015 and MODULE_ID=3 and product_id=10");
                         //decimal expiredays2 = new OracleHelper().ExecuteScalar<decimal>("select to_number(t.parmtr_value) parmtr_value  from GENERAL_PARAMETER t where PARMTR_ID=1016 and MODULE_ID=3 and product_id=10");
 
-                        datequery = "select to_date(sysdate,'dd-mon-yyyy')-to_date((case when t.modified_date is null then t.entered_date else t.modified_date end),'dd-mon-yyyy')from cv_los.user_master t where emp_code = '" + request.employeeId + "'";
+                        datequery = "select to_date(sysdate,'dd-mon-yyyy')-to_date((case when t.modified_date is null then t.entered_date else t.modified_date end),'dd-mon-yyyy')from vw_cv_user_master t where emp_code = '" + request.employeeId + "'";
                         logindifference = new OracleHelper().ExecuteScalar<decimal>(datequery);
                         foreach (RoleProperties roleProperties1 in roleProperties)
                         {
